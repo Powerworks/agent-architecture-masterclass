@@ -1,0 +1,20 @@
+@startuml
+skinparam dpi 110
+title Make the Grade — case study reference (source: nealford.com/katas/kata?id=MakeTheGrade)
+
+package "students" #E8F0FE { class StudentCard }
+
+package "testing-centers" #E6F4EA { class Session }
+package "grading" #FCE8E6 { class Submission }
+package "reporting" #FEF7E0 { class ConsolidatedReport }
+
+StudentCard ..> Session : registers in
+Session ..> Submission : produces
+Submission ..> ConsolidatedReport : feeds
+
+note right of ConsolidatedReport
+  kata.nocs
+  consolidate results to a single location
+  per state across all tests
+end note
+@enduml
